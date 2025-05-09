@@ -1,0 +1,14 @@
+@import 'reset.css';
+
+:root {
+  --font-primary: 'polymath-display', sans-serif;
+  --font-weight-regular: font-weight: 400;
+  --font-weight-bold: font-weight: 700;
+  --font-size: 4rem;
+  --whitespace: 1rem;
+}
+
+html {
+  font-family: var(--font-primary);
+  font-size: var(--font-size);
+}
