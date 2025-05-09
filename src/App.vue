@@ -1,6 +1,7 @@
 <template>
   <h1 class="text-center welcomeText">Welcome Home</h1>
   <Quote />
+  <Timer />
   <Footer></Footer>
 </template>
 
@@ -8,6 +9,7 @@
 // import { ref } from 'vue'
 import Quote from './components/Quote.vue';
 import Footer from './components/Footer.vue';
+import Timer from './components/Timer.vue';
 </script>
 
 <style>
