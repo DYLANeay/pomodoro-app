@@ -1,5 +1,13 @@
 <template>
-  <h1>Hello World</h1>
+  <h1 class="text-center">Hello World</h1>
+  <Quote />
 </template>
 
-<script setup></script>
+<script setup>
+// import { ref } from 'vue'
+import Quote from './components/Quote.vue'
+</script>
+
+<style>
+@import 'tailwindcss';
+</style>
