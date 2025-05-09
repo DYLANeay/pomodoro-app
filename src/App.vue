@@ -1,11 +1,13 @@
 <template>
   <h1 class="text-center welcomeText">Welcome Home</h1>
   <Quote />
+  <Footer></Footer>
 </template>
 
 <script setup>
 // import { ref } from 'vue'
 import Quote from './components/Quote.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <style>
