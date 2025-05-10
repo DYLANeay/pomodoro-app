@@ -67,7 +67,7 @@ input[type='text'] {
 }
 
 li {
-  margin: 0;
+  font-size: calc(var(--fs-sm) * 0.7) !important;
   color: white;
 }
 </style>

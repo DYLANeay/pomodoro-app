@@ -12,6 +12,16 @@ A sleek and modern Pomodoro timer built with **Vue 3**, **Vite**, and **Tailwind
 
 ---
 
+## Features To Implement ✨
+
+- **Reset Tasks Button**: On going
+- **Modify Tasks On click**: On going
+- **Responsiveness**: On going (w/ media queries)
+- **Create a session**: Basically adding a dot under the timer (1 session = 4 pomodoro sets)
+- **Store Tasks When refreshed**: On going
+
+---
+
 ## Tech Stack 🛠️
 
 - **Vue 3**: A progressive JavaScript framework for building user interfaces.
