@@ -25,12 +25,15 @@
     <div class="display">
       <p class="time">{{ formattedTime }}</p>
     </div>
-    <div class="todosTasks"></div>
+    <div class="todosTasks">
+      <Todo />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onBeforeUnmount } from 'vue';
+import Todo from './Todo.vue';
 
 defineOptions({
   name: 'PomodoroTimer',
