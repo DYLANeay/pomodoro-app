@@ -113,10 +113,9 @@ div.btns {
 
 div.todosTasks {
   width: 30%;
-  height: 10px;
   margin-left: 0.5rem;
-  margin-top: 0.5rem;
   border-radius: 1rem;
+  padding: 0.5rem;
   background-color: rgb(61, 61, 61);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

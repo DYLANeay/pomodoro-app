@@ -27,3 +27,5 @@ const onChange = (event) => {
   emits('update:modelValue', event.target.checked);
 };
 </script>
+
+<style></style>

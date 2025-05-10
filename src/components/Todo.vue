@@ -2,7 +2,7 @@
   <form action="" @submit.prevent="addTodo">
     <fieldset>
       <input v-model="newTodo" type="text" placeholder="Ajouter une tâche" />
-      <button :disabled="!newTodo.trim()" type="submit">Ajouter</button>
+      <button class="add-button" :disabled="!newTodo.trim()" type="submit">Ajouter</button>
     </fieldset>
   </form>
   <ul>
@@ -47,5 +47,27 @@ const addTodo = () => {
 .completed {
   text-decoration: line-through;
   color: gray;
+}
+
+fieldset {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-button {
+  font-size: 0.7rem; /* Réduit la taille du texte */
+  cursor: pointer;
+}
+
+input[type='text'] {
+  color: grey;
+  font-size: calc(var(--fs-sm) * 0.5);
+}
+
+li {
+  margin: 0;
+  color: white;
 }
 </style>
