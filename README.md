@@ -19,6 +19,7 @@ A sleek and modern Pomodoro timer built with **Vue 3**, **Vite**, and **Tailwind
 - **Responsiveness**: On going (w/ media queries)
 - **Create a session**: Basically adding a dot under the timer (1 session = 4 pomodoro sets)
 - **Store Tasks When refreshed**: On going
+  => Once this will good, I will push to prod this as a first test version
 
 ---
 
