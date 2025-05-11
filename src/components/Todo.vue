@@ -105,7 +105,7 @@ const resetTasks = () => {
 }
 
 li {
-  font-size: calc(var(--fs-sm) * 0.7) !important;
+  font-size: calc(var(--fs-sm) * 0.4) !important;
   color: #e0aaff;
 }
 

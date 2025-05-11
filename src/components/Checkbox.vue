@@ -41,7 +41,7 @@ input[type='checkbox'] {
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: calc(var(--fs-sm) * 1.05); /* Adjust label font size */
+  font-size: calc(var(--fs-sm) * 0.6); /* Adjust label font size */
 }
 
 /* Custom checkbox box */

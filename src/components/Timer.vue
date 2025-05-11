@@ -65,6 +65,12 @@ const startTimer = () => {
     if (remainingTime.value > 0) {
       remainingTime.value--;
     } else {
+      //Run sound
+      const audio = new Audio('src/assets/sounds/pomodoro.mp3');
+      audio.volume = 0.5; //Reducing volume to 50%
+      audio.currentTime = 1; // Start from 1 second to avoid the initial silence
+      audio.play();
+
       clearInterval(timerInterval);
       isRunning.value = false;
       // Switch to rest time
