@@ -3,11 +3,15 @@
     <fieldset>
       <input v-model="newTodo" type="text" placeholder="Ajouter une tâche" />
       <button class="add-button" :disabled="!newTodo.trim()" type="submit">Add</button>
+      <hr />
     </fieldset>
   </form>
   <ul>
     <li v-for="todo in sortedTodos" :key="todo.id" :class="{ completed: todo.completed }">
-      <Checkbox :label="todo.title" v-model="todo.completed" />
+      <div class="task-container">
+        <Checkbox :label="todo.title" v-model="todo.completed" />
+        <button @click="modifyTasks(todo.id)" class="modify-btn">modify</button>
+      </div>
     </li>
   </ul>
   <div class="resetTasks">
@@ -47,6 +51,16 @@ const addTodo = () => {
   }
 };
 
+const modifyTasks = (id) => {
+  const todo = todos.value.find((todo) => todo.id === id);
+  if (todo) {
+    const newTitle = prompt('Enter new task title:', todo.title);
+    if (newTitle !== null && newTitle.trim() !== '') {
+      todo.title = newTitle.trim();
+    }
+  }
+};
+
 const resetTasks = () => {
   if (confirm('Are you sure you want to reset all tasks?')) {
     //confirm just opens a dialog box to make sure the user wants to reset
@@ -63,6 +77,13 @@ const resetTasks = () => {
   color: gray;
 }
 
+.task-container {
+  margin-top: 0.1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 fieldset {
   display: flex;
   justify-content: space-evenly;
@@ -75,11 +96,23 @@ fieldset {
   cursor: pointer;
 }
 
+.add-button:active {
+  transform: scale(0.95);
+}
+
 .resetTasks {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 0.2rem;
+}
+
+.modify-btn {
+  background-color: black;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  font-size: 0.2rem; /* Réduit la taille du texte */
+  cursor: pointer;
 }
 
 .resetTasks-btn {

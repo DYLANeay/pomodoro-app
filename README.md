@@ -9,12 +9,12 @@ A sleek and modern Pomodoro timer built with **Vue 3**, **Vite**, and **Tailwind
 - **Responsive Design**: Fully responsive and optimized for all devices.
 - **Dark Theme**: A visually appealing dark theme for better focus.
 - **GitHub Integration**: Includes a footer link to the GitHub repository.
+- **Reset Tasks Button**: Reset all your tasks by simply clicking the reset button.
 
 ---
 
 ## Features To Implement ✨
 
-- **Reset Tasks Button**: On going
 - **Modify Tasks On click**: On going
 - **Responsiveness**: On going (w/ media queries)
 - **Create a session**: Basically adding a dot under the timer (1 session = 4 pomodoro sets)
