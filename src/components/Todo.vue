@@ -26,24 +26,35 @@ defineOptions({
   name: 'TodoList',
 });
 
-import { ref, computed } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 import Checkbox from './Checkbox.vue';
 
-// Data
+// Reactive variables
 const newTodo = ref('');
-const todos = ref([
-  { id: 1, title: 'Task 1', completed: false },
-  { id: 2, title: 'Task 2', completed: true },
-  { id: 3, title: 'Task 3', completed: false },
-]);
+const todos = ref([]);
 
-// Computed properties
-const sortedTodos = computed(() => {
-  const sortedTodo = [...todos.value].sort((a, b) => a.completed - b.completed);
-  return sortedTodo;
+// Load todos from localStorage on component mount if there's any
+onMounted(() => {
+  if (localStorage.getItem('todos')) {
+    todos.value = JSON.parse(localStorage.getItem('todos'));
+  }
 });
 
-// Methods
+// Watch for changes in todos and save automatically, it changes ALL the localStorage stored values, even if only one changes
+watch(
+  todos,
+  (newTodos) => {
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  },
+  { deep: true },
+);
+
+// Computed property to sort todos
+const sortedTodos = computed(() => {
+  return [...todos.value].sort((a, b) => a.completed - b.completed);
+});
+
+// Add a new todo
 const addTodo = () => {
   const trimmedTodo = newTodo.value.trim();
   if (trimmedTodo) {
@@ -56,8 +67,10 @@ const addTodo = () => {
   }
 };
 
+// Modify an existing todo
 const modifyTasks = (id) => {
-  const todo = todos.value.find((todo) => todo.id === id);
+  const todo = todos.value.find((todo) => todo.id === id); //Value obligatory because of the fact that todos is a ref
+  // Find the todo with the given id
   if (todo) {
     const newTitle = prompt('Enter new task title:', todo.title);
     if (newTitle !== null && newTitle.trim() !== '') {
@@ -66,10 +79,11 @@ const modifyTasks = (id) => {
   }
 };
 
+// Reset all todos
 const resetTasks = () => {
   if (confirm('Are you sure you want to reset all tasks?')) {
-    //confirm just opens a dialog box to make sure the user wants to reset
     todos.value = [];
+    localStorage.removeItem('todos');
   }
 };
 </script>
