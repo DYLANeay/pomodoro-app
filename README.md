@@ -10,15 +10,16 @@ A sleek and modern Pomodoro timer built with **Vue 3**, **Vite**, and **Tailwind
 - **Dark Theme**: A visually appealing dark theme for better focus.
 - **GitHub Integration**: Includes a footer link to the GitHub repository.
 - **Reset Tasks Button**: Reset all your tasks by simply clicking the reset button.
-- **Modify Tasks**: Modify tasks by clicking the button next to it
+- **Modify Tasks**: Modify tasks by clicking the button next to it.
+- **Responsiveness**: Basics one actually working, but could be improved.
+- **Store Tasks When refreshed**: Save the tasks with localStorage, when the page is being refreshed.
 
 ---
 
 ## Features To Implement ✨
 
-- **Responsiveness**: On going (w/ media queries)
 - **Create a session**: Basically adding a dot under the timer (1 session = 4 pomodoro sets)
-- **Store Tasks When refreshed**: On going
+
   => Once this will good, I will push to prod this as a first test version
 
 ---
