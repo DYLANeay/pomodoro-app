@@ -2,7 +2,7 @@
   <form action="" @submit.prevent="addTodo">
     <fieldset>
       <input v-model="newTodo" type="text" placeholder="Ajouter une tâche" />
-      <button class="add-button" :disabled="!newTodo.trim()" type="submit">Ajouter</button>
+      <button class="add-button" :disabled="!newTodo.trim()" type="submit">Add</button>
     </fieldset>
   </form>
   <ul>
@@ -10,6 +10,9 @@
       <Checkbox :label="todo.title" v-model="todo.completed" />
     </li>
   </ul>
+  <div class="resetTasks">
+    <button class="resetTasks-btn" @click="resetTasks">Reset</button>
+  </div>
 </template>
 
 <script setup>
@@ -21,7 +24,11 @@ import { ref, computed } from 'vue';
 import Checkbox from './Checkbox.vue';
 
 const newTodo = ref('');
-const todos = ref([]);
+const todos = ref([
+  { id: 1, title: 'Task 1', completed: false },
+  { id: 2, title: 'Task 2', completed: true },
+  { id: 3, title: 'Task 3', completed: false },
+]);
 
 const sortedTodos = computed(() => {
   const sortedTodo = [...todos.value].sort((a, b) => a.completed - b.completed);
@@ -37,6 +44,13 @@ const addTodo = () => {
       completed: false,
     });
     newTodo.value = '';
+  }
+};
+
+const resetTasks = () => {
+  if (confirm('Are you sure you want to reset all tasks?')) {
+    //confirm just opens a dialog box to make sure the user wants to reset
+    todos.value = [];
   }
 };
 </script>
@@ -58,6 +72,21 @@ fieldset {
 
 .add-button {
   font-size: 0.7rem; /* Réduit la taille du texte */
+  cursor: pointer;
+}
+
+.resetTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.2rem;
+}
+
+.resetTasks-btn {
+  background-color: black;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  font-size: 0.4rem; /* Réduit la taille du texte */
   cursor: pointer;
 }
 
