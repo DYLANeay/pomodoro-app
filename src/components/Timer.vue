@@ -139,6 +139,16 @@ div.timer-container {
   align-items: center;
 }
 
+@media screen {
+  @media (max-width: 1000px) {
+    div.timer-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
 /* hides shitty things */
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -180,5 +190,53 @@ button:hover {
 
 p.time {
   font-size: var(--fs-xxl);
+}
+
+@media screen and (max-width: 1000px) {
+  div.timer-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.settings,
+  div.display,
+  div.todosTasks {
+    width: 90%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  input {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  p.time {
+    font-size: var(--fs-xl);
+  }
+
+  div.inputUser {
+    flex-direction: column; /* Stack the labels vertically */
+    gap: 1rem; /* Add spacing between the labels */
+    align-items: center; /* Center-align the labels */
+  }
+
+  label {
+    display: flex;
+    flex-direction: column; /* Stack the <p> and <input> vertically */
+    align-items: center; /* Center-align the content inside the label */
+    text-align: center; /* Center-align the text */
+  }
+
+  div.btns {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 </style>

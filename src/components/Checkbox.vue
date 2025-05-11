@@ -74,4 +74,16 @@ input[type='checkbox']:checked + .checkbox-box::after {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 1000px) {
+  .custom-checkbox {
+    font-size: 1rem; /* Increase label font size */
+    gap: 0.5rem; /* Add spacing between checkbox and label */
+  }
+
+  .checkbox-box {
+    width: 25px; /* Increase checkbox size */
+    height: 25px;
+  }
+}
 </style>

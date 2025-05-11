@@ -136,4 +136,37 @@ li {
   font-size: calc(var(--fs-sm) * 0.7) !important;
   color: #e0aaff;
 }
+
+@media screen and (max-width: 1000px) {
+  fieldset {
+    flex-direction: column; /* Stack inputs and button vertically */
+    gap: 0.5rem;
+  }
+
+  .task-container {
+    flex-direction: column; /* Stack tasks vertically */
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .add-button,
+  .modify-btn,
+  .resetTasks-btn {
+    font-size: 0.9rem; /* Increase button text size for smaller screens */
+    padding: 0.4rem 0.8rem; /* Adjust padding */
+  }
+
+  input[type='text'] {
+    width: 100%; /* Make input take full width */
+    font-size: 1rem; /* Increase input text size */
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    font-size: 1rem; /* Adjust task font size */
+  }
+}
 </style>
