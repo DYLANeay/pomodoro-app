@@ -74,7 +74,7 @@ const resetTasks = () => {
 
 .completed {
   text-decoration: line-through;
-  color: gray;
+  color: #3c096c;
 }
 
 .task-container {
@@ -108,15 +108,19 @@ fieldset {
 }
 
 .modify-btn {
-  background-color: black;
+  background-color: #7b2cbf;
   padding: 0.3rem;
   border-radius: 1rem;
   font-size: 0.2rem; /* Réduit la taille du texte */
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #9d4edd;
+}
+
 .resetTasks-btn {
-  background-color: black;
+  background-color: #7b2cbf;
   padding: 0.4rem;
   border-radius: 1rem;
   font-size: 0.4rem; /* Réduit la taille du texte */
@@ -124,12 +128,12 @@ fieldset {
 }
 
 input[type='text'] {
-  color: grey;
+  color: #e0aaff;
   font-size: calc(var(--fs-sm) * 0.5);
 }
 
 li {
   font-size: calc(var(--fs-sm) * 0.7) !important;
-  color: white;
+  color: #e0aaff;
 }
 </style>

@@ -99,7 +99,7 @@ div.settings {
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 1rem;
-  background-color: rgb(61, 61, 61);
+  background-color: #240046;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -116,7 +116,7 @@ div.todosTasks {
   margin-left: 0.5rem;
   border-radius: 1rem;
   padding: 0.5rem;
-  background-color: rgb(61, 61, 61);
+  background-color: #240046;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -128,7 +128,7 @@ div.display {
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 1rem;
-  background-color: rgb(61, 61, 61);
+  background-color: #240046;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -148,7 +148,7 @@ input {
   text-align: center;
   margin-top: 0.1rem;
   justify-content: center;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid #e0aaff;
   border-radius: 0.5rem;
 }
 
@@ -167,7 +167,7 @@ div.btn {
 }
 
 button {
-  background-color: rgb(0, 0, 0);
+  background-color: #7b2cbf;
   border-radius: 0.5rem;
   padding: 0.26rem;
   font-size: 0.5rem;
