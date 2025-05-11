@@ -6,6 +6,7 @@
       <hr />
     </fieldset>
   </form>
+
   <ul>
     <li v-for="todo in sortedTodos" :key="todo.id" :class="{ completed: todo.completed }">
       <div class="task-container">
@@ -14,6 +15,7 @@
       </div>
     </li>
   </ul>
+
   <div class="resetTasks">
     <button class="resetTasks-btn" @click="resetTasks">Reset</button>
   </div>
@@ -27,6 +29,7 @@ defineOptions({
 import { ref, computed } from 'vue';
 import Checkbox from './Checkbox.vue';
 
+// Data
 const newTodo = ref('');
 const todos = ref([
   { id: 1, title: 'Task 1', completed: false },
@@ -34,11 +37,13 @@ const todos = ref([
   { id: 3, title: 'Task 3', completed: false },
 ]);
 
+// Computed properties
 const sortedTodos = computed(() => {
   const sortedTodo = [...todos.value].sort((a, b) => a.completed - b.completed);
   return sortedTodo;
 });
 
+// Methods
 const addTodo = () => {
   const trimmedTodo = newTodo.value.trim();
   if (trimmedTodo) {
@@ -72,6 +77,7 @@ const resetTasks = () => {
 <style>
 @import '@/assets/styles/variables.css';
 
+/* Task appearance */
 .completed {
   text-decoration: line-through;
   color: #3c096c;
@@ -84,6 +90,12 @@ const resetTasks = () => {
   align-items: center;
 }
 
+li {
+  font-size: calc(var(--fs-sm) * 0.7) !important;
+  color: #e0aaff;
+}
+
+/* Form elements */
 fieldset {
   display: flex;
   justify-content: space-evenly;
@@ -91,6 +103,12 @@ fieldset {
   align-items: center;
 }
 
+input[type='text'] {
+  color: #e0aaff;
+  font-size: calc(var(--fs-sm) * 0.5);
+}
+
+/* Buttons */
 .add-button {
   font-size: 0.7rem; /* Réduit la taille du texte */
   cursor: pointer;
@@ -127,16 +145,7 @@ button:hover {
   cursor: pointer;
 }
 
-input[type='text'] {
-  color: #e0aaff;
-  font-size: calc(var(--fs-sm) * 0.5);
-}
-
-li {
-  font-size: calc(var(--fs-sm) * 0.7) !important;
-  color: #e0aaff;
-}
-
+/* Responsive styling */
 @media screen and (max-width: 1000px) {
   fieldset {
     flex-direction: column; /* Stack inputs and button vertically */

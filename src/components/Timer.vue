@@ -1,5 +1,6 @@
 <template>
   <div class="timer-container">
+    <!-- Settings Section -->
     <div class="settings">
       <div class="inputUser">
         <label>
@@ -11,6 +12,7 @@
           <input type="number" min="1" max="60" v-model="restTime" />
         </label>
       </div>
+
       <div class="btns">
         <div class="btn">
           <button @click="isRunning ? stopTimer() : startTimer()">
@@ -22,9 +24,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Timer Display -->
     <div class="display">
       <p class="time">{{ formattedTime }}</p>
     </div>
+
+    <!-- Todo List Section -->
     <div class="todosTasks">
       <Todo />
     </div>
@@ -39,12 +45,14 @@ defineOptions({
   name: 'PomodoroTimer',
 });
 
+// Timer state
 const workTime = ref(25);
 const restTime = ref(5);
 const remainingTime = ref(workTime.value * 60); // en secondes
 const isRunning = ref(false);
 let timerInterval = null;
 
+// Timer functions
 const updateRemainingTime = () => {
   if (!isRunning.value) {
     remainingTime.value = workTime.value * 60;
@@ -94,28 +102,19 @@ onBeforeUnmount(() => {
 <style scoped>
 @import '@/assets/styles/variables.css';
 
+/* Layout containers */
+div.timer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 div.settings {
   width: 30%;
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 1rem;
-  background-color: #240046;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-div.btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* padding: 0.5rem; */
-  gap: 0.5rem;
-}
-
-div.todosTasks {
-  width: 30%;
-  margin-left: 0.5rem;
-  border-radius: 1rem;
-  padding: 0.5rem;
   background-color: #240046;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -132,26 +131,22 @@ div.display {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-div.timer-container {
+div.todosTasks {
+  width: 30%;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: #240046;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Input styling */
+div.inputUser {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-}
-
-@media screen {
-  @media (max-width: 1000px) {
-    div.timer-container {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-/* hides shitty things */
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  gap: 1rem;
+  padding-top: 0.5rem;
 }
 
 input {
@@ -162,12 +157,17 @@ input {
   border-radius: 0.5rem;
 }
 
-div.inputUser {
+/* Hides spin buttons on number inputs */
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Button styling */
+div.btns {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1rem;
-  padding-top: 0.5rem;
+  gap: 0.5rem;
 }
 
 div.btn {
@@ -188,10 +188,12 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Timer display */
 p.time {
   font-size: var(--fs-xxl);
 }
 
+/* Responsive styles */
 @media screen and (max-width: 1000px) {
   div.timer-container {
     flex-direction: column;
@@ -205,6 +207,17 @@ p.time {
     width: 90%;
     margin-left: 0;
     margin-top: 1rem;
+  }
+
+  div.inputUser {
+    flex-direction: column; /* Stack the labels vertically */
+    gap: 1rem; /* Add spacing between the labels */
+    align-items: center; /* Center-align the labels */
+  }
+
+  div.btns {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   button {
@@ -221,22 +234,11 @@ p.time {
     font-size: var(--fs-xl);
   }
 
-  div.inputUser {
-    flex-direction: column; /* Stack the labels vertically */
-    gap: 1rem; /* Add spacing between the labels */
-    align-items: center; /* Center-align the labels */
-  }
-
   label {
     display: flex;
     flex-direction: column; /* Stack the <p> and <input> vertically */
     align-items: center; /* Center-align the content inside the label */
     text-align: center; /* Center-align the text */
-  }
-
-  div.btns {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 }
 </style>
